@@ -126,3 +126,13 @@ class Drink(db.Model):
 
     def __repr__(self):
         return json.dumps(self.short())
+
+    def get_drinks_short():
+        drinks = Drink.query.order_by(Drink.id).all()
+        formatted_drinks = [drink.short() for drink in drinks]
+        return formatted_drinks   
+    
+    def get_drinks_long():
+        drinks = Drink.query.order_by(Drink.id).all()
+        formatted_drinks = [drink.long() for drink in drinks]
+        return formatted_drinks  
